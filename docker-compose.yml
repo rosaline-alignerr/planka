@@ -47,13 +47,10 @@ services:
       # - DEFAULT_LANGUAGE=en-US
 
       # Do not comment out DEFAULT_ADMIN_EMAIL if you want to prevent this user from being edited/deleted
-      # - DEFAULT_ADMIN_EMAIL=demo@demo.demo
-      # - DEFAULT_ADMIN_PASSWORD=demo
-      # Optionally store in secrets - then DEFAULT_ADMIN_PASSWORD should not be set
-      # - DEFAULT_ADMIN_PASSWORD__FILE=/run/secrets/default_admin_password
-      # - DEFAULT_ADMIN_NAME=Demo Demo
-      # - DEFAULT_ADMIN_USERNAME=demo
-
+      - DEFAULT_ADMIN_EMAIL=admin@example.com
+      - DEFAULT_ADMIN_PASSWORD=admin123
+      - DEFAULT_ADMIN_NAME=Admin User
+      - DEFAULT_ADMIN_USERNAME=admin
       # - INTERNAL_ACCESS_TOKEN=
       # - STORAGE_LIMIT=
       # - ACTIVE_USERS_LIMIT=
@@ -123,7 +120,7 @@ services:
       - POSTGRES_DB=planka
       - POSTGRES_HOST_AUTH_METHOD=trust
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d planka"]
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d planka" ]
       interval: 10s
       timeout: 5s
       retries: 5
